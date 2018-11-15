@@ -1,23 +1,43 @@
-def counter(input)
-  x = 1
-  counted_numbers = []
-  until (x >= input)
-    x += 1
-    counted_numbers.push(x)
-  end
-  return counted_numbers
-end
+# def counter(input)
+#   x = 1
+#   counted_numbers = []
+#   until (x >= input)
+#     x += 1
+#     counted_numbers.push(x)
+#   end
+#   return counted_numbers
+# end
 
 def prime_numbers(array_input)
-  prime_array = []
-  array_input.each do |element|
-    if (element == 2) | (element == 3) | (element == 5) | (element == 7)
-      prime_array.push(element)
-    elsif (element % 2 === 0) | (element % 3 === 0) | (element % 5 === 0) | (element % 7 === 0)
-      nil
-    else
-      prime_array.push(element)
+  prime_array = (2..(array_input)).to_a
+  i = 0
+  while (i < prime_array.length)
+    prime_array.delete_if do |number|
+      (number % prime_array[i] == 0) & (number != prime_array[i])
     end
+    i += 1
   end
-  return prime_array
+  prime_array
 end
+
+
+
+
+
+#
+#
+# def all_primes(user_input)
+#   prime_results = (2..(user_input)).to_a
+#   i=0
+#
+#   while (i < prime_results.length)
+#
+#     prime_results.delete_if do |num|
+#       (num % prime_results[i] == 0) & (num != prime_results[i])
+#     end
+#
+#     i+=1
+#   end
+#
+#   prime_results
+# end
